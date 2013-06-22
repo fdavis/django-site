@@ -1,3 +1,5 @@
+from django.template.loader import get_template
+from django.template import Context
 from django.http import HttpResponse
 import datetime
 
@@ -7,7 +9,11 @@ def hello(request):
 
 def current_datetime(request):
   now = datetime.datetime.now()
-  html = "<html><body>The current time is %s.</body></html>" % now
+  data = {}
+  data['date'] = now
+  c = Context(data)
+  t = get_template('datetime.html')
+  html = t.render(c)
   return HttpResponse(html)
 
 def time_plus(request, offset):
@@ -18,4 +24,3 @@ def time_plus(request, offset):
   dt = datetime.datetime.now() + datetime.timedelta(hours=hrs)
   html = "<html><body>The time in %d hours will be %s.</body></html>" % (hrs, dt)
   return HttpResponse(html)
-
