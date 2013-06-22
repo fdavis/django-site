@@ -3,5 +3,5 @@
 {% block title %}Future time{% endblock %}
 
 {% block content %}
-<p>In {{ offset }} {% ifequal offset 1 %}hour{% else %}hours{% endif %}, it will be {{ date }}.</p>
+<p>In {{ offset }} {% ifequal offset 1 %}hour{% else %}hours{% endifequal %}, it will be {{ date }}.</p>
 {% endblock %}
