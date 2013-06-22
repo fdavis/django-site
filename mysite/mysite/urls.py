@@ -8,6 +8,7 @@ from mysite.views import hello, current_datetime
 urlpatterns = patterns('',
     url(r'^hello/$', hello),
     url(r'^time/$', current_datetime),
+    url(r'^time/plus/(\d{1,2})/$', time_plus),
     # Examples:
     # url(r'^$', 'mysite.views.home', name='home'),
     # url(r'^mysite/', include('mysite.foo.urls')),
