@@ -11,6 +11,7 @@ def current_datetime(request):
   now = datetime.datetime.now()
   data = {}
   data['date'] = now
+  data['title'] = 'Current Date'
   c = Context(data)
   t = get_template('datetime.html')
   html = t.render(c)
