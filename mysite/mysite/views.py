@@ -1,6 +1,4 @@
-from django.template.loader import get_template
-from django.template import Context
-from django.http import HttpResponse
+from django.shortcuts import render
 import datetime
 
 def hello(request):
@@ -12,10 +10,7 @@ def current_datetime(request):
   data = {}
   data['date'] = now
   data['title'] = 'Current Date'
-  c = Context(data)
-  t = get_template('datetime.html')
-  html = t.render(c)
-  return HttpResponse(html)
+  return render(request, 'datetime.html', data)
 
 def time_plus(request, offset):
   try:
