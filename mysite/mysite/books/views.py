@@ -1,11 +1,12 @@
 from django.shortcuts import render
-# Create your views here.
-def search_form(request):
-  return render(request, 'search_form.html')
+
+def search_form(request, callback={}):
+  return render(request, 'search_form.html', callback)
 
 def search(request):
-  if 'q' in request.GET:
+  if getattr(request.GET, 'q', None):
     message = 'Your searched for: %r' % request.GET['q']
-  else:
-    message = 'You submitted an empty form.'
-  return render(request, 'message.html', {'message': message})
+    return render(request, 'message.html', {'message': message})
+
+  callback = {'message':  'You submitted an empty form.', 'error': True}
+  return search_form(request, callback)
