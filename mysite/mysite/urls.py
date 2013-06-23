@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from mysite.views import hello, current_datetime, time_plus, show_meta
-from books import views 
+from mysite.books import views 
 from django.contrib import admin
 admin.autodiscover
 
