@@ -14,7 +14,7 @@ def show_meta(request):
   #html = []
   #for k, v in values:
   #  html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
-  return render(request, 'message.html', {'message': values})
+  return render(request, 'message.html-dict', {'message': values})
 
 def current_datetime(request):
   now = datetime.datetime.now()
