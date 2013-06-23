@@ -7,6 +7,10 @@ def hello(request):
 def show_meta(request):
   values = request.META.items()
   values.sort()
+  values["request.path"] = request.path
+  values["request.get_host"] = request.get_host()
+  values['request.get_full_path'] = request.get_full_path()
+  values['request.is_secure'] = request.is_secure()
   #html = []
   #for k, v in values:
   #  html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
