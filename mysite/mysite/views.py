@@ -6,11 +6,11 @@ def hello(request):
 
 def show_meta(request):
   values = request.META.items()
+  values.append('request.path', request.path)
+  values.append('request.get_host', request.get_host())
+  values.append('request.get_full_path', request.get_full_path())
+  values.append('request.is_secure', request.is_secure())
   values.sort()
-  #values["request.path"] = request.path
-  #values["request.get_host"] = request.get_host()
-  #values['request.get_full_path'] = request.get_full_path()
-  #values['request.is_secure'] = request.is_secure()
   #html = []
   #for k, v in values:
   #  html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
