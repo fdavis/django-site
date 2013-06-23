@@ -4,7 +4,7 @@ def search_form(request, callback={}):
   return render(request, 'search_form.html', callback)
 
 def search(request):
-  if getattr(request.GET, 'q', None):
+  if request.GET.get('q', None):
     message = 'Your searched for: %r' % request.GET['q']
     return render(request, 'message.html', {'message': message})
 
