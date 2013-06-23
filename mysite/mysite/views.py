@@ -5,8 +5,7 @@ def hello(request):
   return render(request, 'hello.html') 
 
 def show_meta(request):
-  values = request.META.items()
-  values.sort()
+  values = request.META
   values["request.path"] = request.path
   values["request.get_host"] = request.get_host()
   values['request.get_full_path'] = request.get_full_path()
