@@ -7,10 +7,10 @@ def hello(request):
 def show_meta(request):
   values = request.META.items()
   values.sort()
-  html = []
-  for k, v in values:
-    html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
-  return render(request, 'message.html', {'message': '<table>%s</table>' % '\n'.join(html)}) 
+  #html = []
+  #for k, v in values:
+  #  html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
+  return render(request, 'message.html', {'message': values})
 
 def current_datetime(request):
   now = datetime.datetime.now()

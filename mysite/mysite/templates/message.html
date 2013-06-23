@@ -3,5 +3,7 @@
 {% block title %}We have a message for you!{% endblock %}
 
 {% block content %}
-{{ message }}
+{% for k,v in message %}
+<tr><td>{{ k }}</td><td>{{ v }}</td></tr>
+{% endfor %}
 {% endblock %}
