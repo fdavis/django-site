@@ -5,13 +5,15 @@ from django.shortcuts import render
 
 def search(request):
   error = False
+  message = 'Feel free to search!'
   if 'q' in request.GET:
     q = request.GET['q']
     if not q:
       error = True
+      message = 'You submitted an empty form.'
     else:
       message = 'Your searched for: %r' % q
       return render(request, 'message.html', {'message': message})
   
-  callback = {'message':  'You submitted an empty form.', 'error': error}
-  return search_form(request, callback)
+  callback = {'message':  message, 'error': error}
+  return render(request, 'message.html', callback)
