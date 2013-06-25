@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-def search_form(request, callback={}):
-  return render(request, 'search_form.html', callback)
+#def search_form(request, callback={}):
+#  return render(request, 'search_form.html', callback)
 
 def search(request):
   error = False
@@ -13,5 +13,5 @@ def search(request):
       message = 'Your searched for: %r' % q
       return render(request, 'message.html', {'message': message})
   
-  callback = {'message':  'You submitted an empty form.', 'error': True}
+  callback = {'message':  'You submitted an empty form.', 'error': error}
   return search_form(request, callback)
