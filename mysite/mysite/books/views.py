@@ -16,4 +16,4 @@ def search(request):
       return render(request, 'message.html', {'message': message})
   
   callback = {'message':  message, 'error': error}
-  return render(request, 'message.html', callback)
+  return render(request, 'search_form.html', callback)
