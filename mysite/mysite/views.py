@@ -21,9 +21,9 @@ def current_datetime(request):
   data = {'date': now}
   return render(request, 'current_date.html', data)
 
-def time_plus(request, offset):
+def time_plus(request, hours):
   try:
-    hrs = int(offset)
+    hrs = int(hours)
   except ValueError:
     raise Http404()
   dt = datetime.datetime.now() + datetime.timedelta(hours=hrs)
