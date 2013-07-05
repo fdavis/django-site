@@ -11,6 +11,7 @@ admin.autodiscover
 urlpatterns = patterns('',
     url(r'^hello/$|^$', hello),
     url(r'^time/$', current_datetime),
+    url(r'^timeplus1/$', time_plus, {'hours': 1}),
     url(r'^time/plus/(?P<hours>\d{1,2})/$', time_plus),
     url(r'^admin/$', include(admin.site.urls)),
     url(r'^meta/$', show_meta),
